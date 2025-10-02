@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { Sparkles, CheckCircle, ArrowRight, User, Zap, Shield } from 'lucide-react'
 
 export default function Landing() {
@@ -10,7 +9,6 @@ export default function Landing() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically send the data to your backend
     console.log('Customer info:', { name, email, password })
     setSubmitted(true)
   }
@@ -24,22 +22,8 @@ export default function Landing() {
             Thank you, {name}!
           </h2>
           <p className="text-gray-600 mb-8">
-            We've received your information. You can now explore the app or wait for our team to contact you.
+            We've received your information and will be in touch soon.
           </p>
-          <div className="space-y-4">
-            <Link
-              to="/demo"
-              className="block w-full bg-[#7ED957] text-white py-3 px-6 rounded-2xl font-semibold hover:bg-[#6BC847] transition-all duration-200 hover-lift shadow-lg"
-            >
-              Try the App Demo
-            </Link>
-            <Link
-              to="/auth/sign-in"
-              className="block w-full border-2 border-[#174C4F] text-[#174C4F] py-3 px-6 rounded-2xl font-semibold hover:bg-[#174C4F] hover:text-white transition-all duration-200"
-            >
-              Sign In to Full App
-            </Link>
-          </div>
         </div>
       </div>
     )
@@ -52,20 +36,6 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="text-2xl font-bold tracking-tight">
             YoungerU
-          </div>
-          <div className="flex items-center space-x-6">
-            <Link
-              to="/demo"
-              className="text-white/80 hover:text-white transition-colors font-medium"
-            >
-              Try Demo
-            </Link>
-            <Link
-              to="/auth/sign-in"
-              className="bg-white/10 backdrop-blur-sm text-white px-6 py-2 rounded-2xl font-medium hover:bg-white/20 transition-all duration-200"
-            >
-              Sign In
-            </Link>
           </div>
         </div>
       </nav>
@@ -239,18 +209,6 @@ export default function Landing() {
               Start Your Plan
               <ArrowRight className="w-5 h-5" />
             </a>
-            <Link
-              to="/demo"
-              className="border-2 border-[#174C4F] text-[#174C4F] px-8 py-4 rounded-2xl font-semibold hover:bg-[#174C4F] hover:text-white transition-all duration-200 text-lg"
-            >
-              Try Demo First
-            </Link>
-            <Link
-              to="/app"
-              className="bg-[#174C4F] text-white px-8 py-4 rounded-2xl font-semibold hover:bg-[#174C4F]/90 transition-all duration-200 text-lg"
-            >
-              Full App Access
-            </Link>
           </div>
         </div>
       </div>
