@@ -43,91 +43,132 @@ export default function Landing() {
 
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-center">
-          {/* Pain Point Headline */}
-          <h1 className="text-4xl lg:text-7xl font-bold mb-6 leading-tight">
-            Confused by supplements?
-            <br />
-            <span className="text-white/90">You're not alone.</span>
-          </h1>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Text Content */}
+            <div className="text-center lg:text-left">
+              {/* Pain Point Headline */}
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                Confused by supplements?
+                <br />
+                <span className="text-white/90">You're not alone.</span>
+              </h1>
 
-          {/* Promise Subheadline */}
-          <p className="text-xl lg:text-3xl text-white/90 mb-12 leading-relaxed max-w-4xl mx-auto">
-            YoungerU cuts through the hype with science-backed, personalized guidance — in just 3 minutes.
-          </p>
+              {/* Promise Subheadline */}
+              <p className="text-xl lg:text-2xl text-white/90 mb-10 leading-relaxed">
+                YoungerU cuts through the hype with science-backed, personalized guidance — in just 3 minutes.
+              </p>
 
-          {/* Primary CTA */}
-          <a
-            href="#email-form"
-            className="inline-flex items-center justify-center gap-3 bg-[#7ED957] text-white px-12 py-5 rounded-2xl font-bold hover:bg-[#6BC847] transition-all duration-200 shadow-2xl text-xl mb-6 hover:scale-105 transform"
-            onClick={(e) => {
-              e.preventDefault()
-              document.getElementById('email-form')?.scrollIntoView({ behavior: 'smooth' })
-            }}
-          >
-            <Sparkles className="w-6 h-6" />
-            Get My Free Plan
-          </a>
+              {/* Primary CTA */}
+              <a
+                href="#email-form"
+                className="inline-flex items-center justify-center gap-3 bg-[#7ED957] text-white px-12 py-5 rounded-2xl font-bold hover:bg-[#6BC847] transition-all duration-200 shadow-2xl text-xl mb-6 hover:scale-105 transform"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById('email-form')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+              >
+                <Sparkles className="w-6 h-6" />
+                Get My Free Plan
+              </a>
 
-          {/* Secondary CTA */}
-          <p className="text-white/80 text-base">
-            Join the waitlist & get your <strong>free supplement clarity guide</strong>
-          </p>
+              {/* Secondary CTA */}
+              <p className="text-white/80 text-base">
+                Join the waitlist & get your <strong>free supplement clarity guide</strong>
+              </p>
+            </div>
+
+            {/* Right: Hero Image */}
+            <div className="relative">
+              <div className="rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src="https://images.pexels.com/photos/7176325/pexels-photo-7176325.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Person reviewing supplements and vitamins"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Pain Point Section */}
       <div className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-8">
-            {[
-              {
-                icon: <AlertCircle className="w-10 h-10 text-red-500" />,
-                text: "Too many pills, too little clarity."
-              },
-              {
-                icon: <AlertTriangle className="w-10 h-10 text-orange-500" />,
-                text: "Studies feel like hype and BS."
-              },
-              {
-                icon: <TrendingDown className="w-10 h-10 text-amber-500" />,
-                text: "I'm 40, energy's dipping, recovery is slower."
-              }
-            ].map((pain, index) => (
-              <div key={index} className="flex items-start gap-6 p-6 bg-gray-50 rounded-2xl border-l-4 border-red-400">
-                <div className="flex-shrink-0">
-                  <X className="w-8 h-8 text-red-500" />
-                </div>
-                <p className="text-xl text-gray-800 font-medium flex-1">
-                  {pain.text}
-                </p>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Image */}
+            <div className="order-2 lg:order-1">
+              <div className="rounded-3xl overflow-hidden shadow-xl">
+                <img
+                  src="https://images.pexels.com/photos/3683041/pexels-photo-3683041.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Confused person looking at supplement bottles"
+                  className="w-full h-auto object-cover"
+                />
               </div>
-            ))}
-          </div>
+            </div>
 
-          {/* Solution CTA */}
-          <div className="mt-12 text-center">
-            <p className="text-2xl text-[#174C4F] font-bold mb-6">
-              → Take the quiz and see what actually works for you.
-            </p>
-            <a
-              href="#email-form"
-              className="inline-flex items-center justify-center gap-3 bg-[#7ED957] text-white px-10 py-4 rounded-2xl font-bold hover:bg-[#6BC847] transition-all duration-200 shadow-lg text-lg"
-              onClick={(e) => {
-                e.preventDefault()
-                document.getElementById('email-form')?.scrollIntoView({ behavior: 'smooth' })
-              }}
-            >
-              Start Your Quiz
-              <ArrowRight className="w-5 h-5" />
-            </a>
+            {/* Right: Pain Points */}
+            <div className="order-1 lg:order-2">
+              <div className="space-y-8">
+                {[
+                  {
+                    icon: <AlertCircle className="w-10 h-10 text-red-500" />,
+                    text: "Too many pills, too little clarity."
+                  },
+                  {
+                    icon: <AlertTriangle className="w-10 h-10 text-orange-500" />,
+                    text: "Studies feel like hype and BS."
+                  },
+                  {
+                    icon: <TrendingDown className="w-10 h-10 text-amber-500" />,
+                    text: "I'm 40, energy's dipping, recovery is slower."
+                  }
+                ].map((pain, index) => (
+                  <div key={index} className="flex items-start gap-6 p-6 bg-gray-50 rounded-2xl border-l-4 border-red-400">
+                    <div className="flex-shrink-0">
+                      <X className="w-8 h-8 text-red-500" />
+                    </div>
+                    <p className="text-xl text-gray-800 font-medium flex-1">
+                      {pain.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Solution CTA */}
+              <div className="mt-12">
+                <p className="text-2xl text-[#174C4F] font-bold mb-6">
+                  → Take the quiz and see what actually works for you.
+                </p>
+                <a
+                  href="#email-form"
+                  className="inline-flex items-center justify-center gap-3 bg-[#7ED957] text-white px-10 py-4 rounded-2xl font-bold hover:bg-[#6BC847] transition-all duration-200 shadow-lg text-lg"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    document.getElementById('email-form')?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                >
+                  Start Your Quiz
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Email Capture Section */}
-      <div id="email-form" className="py-24 bg-gradient-to-br from-[#174C4F] to-[#174C4F]/80">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="email-form" className="py-24 bg-gradient-to-br from-[#174C4F] to-[#174C4F]/80 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <img
+            src="https://images.pexels.com/photos/4021808/pexels-photo-4021808.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="Background pattern"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12">
             <div className="text-center mb-8">
               <h2 className="text-3xl lg:text-4xl font-bold text-[#174C4F] mb-4">
@@ -165,24 +206,38 @@ export default function Landing() {
 
       {/* Final CTA Section */}
       <div className="py-24 bg-[#F5F7F8]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#174C4F] mb-6">
-            Ready to Cut Through the Confusion?
-          </h2>
-          <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-            Join thousands who've stopped wasting money on supplements that don't work
-          </p>
-          <a
-            href="#email-form"
-            onClick={(e) => {
-              e.preventDefault()
-              document.getElementById('email-form')?.scrollIntoView({ behavior: 'smooth' })
-            }}
-            className="inline-flex items-center justify-center gap-3 bg-[#7ED957] text-white px-10 py-5 rounded-2xl font-bold hover:bg-[#6BC847] transition-all duration-200 shadow-xl text-xl hover:scale-105 transform"
-          >
-            Get Your Free Guide Now
-            <ArrowRight className="w-6 h-6" />
-          </a>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Image */}
+            <div className="rounded-3xl overflow-hidden shadow-xl">
+              <img
+                src="https://images.pexels.com/photos/6551415/pexels-photo-6551415.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Happy healthy person with energy"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+
+            {/* Right: CTA */}
+            <div className="text-center lg:text-left">
+              <h2 className="text-3xl lg:text-5xl font-bold text-[#174C4F] mb-6 leading-tight">
+                Ready to Cut Through the Confusion?
+              </h2>
+              <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+                Join thousands who've stopped wasting money on supplements that don't work
+              </p>
+              <a
+                href="#email-form"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById('email-form')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="inline-flex items-center justify-center gap-3 bg-[#7ED957] text-white px-10 py-5 rounded-2xl font-bold hover:bg-[#6BC847] transition-all duration-200 shadow-xl text-xl hover:scale-105 transform"
+              >
+                Get Your Free Guide Now
+                <ArrowRight className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
