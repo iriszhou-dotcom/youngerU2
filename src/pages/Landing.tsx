@@ -1,28 +1,29 @@
 import { useState } from 'react'
-import { Sparkles, CheckCircle, ArrowRight, User, Zap, Shield } from 'lucide-react'
+import { Sparkles, CheckCircle, ArrowRight, X, AlertCircle, AlertTriangle, TrendingDown } from 'lucide-react'
 
 export default function Landing() {
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [name, setName] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Customer info:', { name, email, password })
+    console.log('Email submitted:', email)
     setSubmitted(true)
   }
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#174C4F] to-[#174C4F]/90 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-[#174C4F] to-[#174C4F]/90 flex items-center justify-center px-4">
         <div className="max-w-md w-full bg-white rounded-3xl shadow-2xl p-8 text-center">
           <CheckCircle className="w-16 h-16 text-[#7ED957] mx-auto mb-6" />
           <h2 className="text-2xl font-bold text-[#174C4F] mb-4">
-            Thank you, {name}!
+            Check Your Email!
           </h2>
-          <p className="text-gray-600 mb-8">
-            We've received your information and will be in touch soon.
+          <p className="text-gray-600 mb-6">
+            We've sent your Free Supplement Clarity Guide to <strong>{email}</strong>
+          </p>
+          <p className="text-sm text-gray-500">
+            Don't see it? Check your spam folder.
           </p>
         </div>
       </div>
@@ -42,174 +43,146 @@ export default function Landing() {
 
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div className="animate-fade-in-up">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                Feel younger, live stronger.
-              </h1>
-              <p className="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed">
-                Get personalized, science-backed supplement guidance in 3 minutes.
-              </p>
-              
-              {/* Benefit Chips */}
-              <div className="flex flex-wrap gap-3 mb-10">
-                {['Energy', 'Focus', 'Recovery'].map(benefit => (
-                  <span key={benefit} className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">
-                    {benefit}
-                  </span>
-                ))}
-              </div>
-              
-              {/* Trust Line */}
-              <p className="text-white/70 text-lg mb-8">
-                Join thousands who've transformed their wellness journey
-              </p>
-            </div>
-            
-            {/* Sign Up Form */}
-            <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-10">
-              <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-[#174C4F] mb-2">
-                  Start Your Journey
-                </h2>
-                <p className="text-gray-600">
-                  Get your personalized wellness plan
-                </p>
-              </div>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-center">
+          {/* Pain Point Headline */}
+          <h1 className="text-4xl lg:text-7xl font-bold mb-6 leading-tight">
+            Confused by supplements?
+            <br />
+            <span className="text-white/90">You're not alone.</span>
+          </h1>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-[#174C4F] mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#7ED957] focus:border-[#7ED957] text-base bg-white text-black"
-                    placeholder="Enter your full name"
-                  />
-                </div>
+          {/* Promise Subheadline */}
+          <p className="text-xl lg:text-3xl text-white/90 mb-12 leading-relaxed max-w-4xl mx-auto">
+            YoungerU cuts through the hype with science-backed, personalized guidance — in just 3 minutes.
+          </p>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-[#174C4F] mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#7ED957] focus:border-[#7ED957] text-base bg-white text-black"
-                    placeholder="Enter your email"
-                  />
-                </div>
+          {/* Primary CTA */}
+          <a
+            href="#email-form"
+            className="inline-flex items-center justify-center gap-3 bg-[#7ED957] text-white px-12 py-5 rounded-2xl font-bold hover:bg-[#6BC847] transition-all duration-200 shadow-2xl text-xl mb-6 hover:scale-105 transform"
+            onClick={(e) => {
+              e.preventDefault()
+              document.getElementById('email-form')?.scrollIntoView({ behavior: 'smooth' })
+            }}
+          >
+            <Sparkles className="w-6 h-6" />
+            Get My Free Plan
+          </a>
 
-                <div>
-                  <label htmlFor="password" className="block text-sm font-semibold text-[#174C4F] mb-2">
-                    Create Password
-                  </label>
-                  <input
-                    id="password"
-                    type="password"
-                    required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#7ED957] focus:border-[#7ED957] text-base bg-white text-black"
-                    placeholder="Create a secure password"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-[#7ED957] text-white py-4 px-6 rounded-2xl font-semibold hover:bg-[#6BC847] transition-all duration-200 hover-lift shadow-lg text-lg flex items-center justify-center gap-3"
-                >
-                  <Sparkles className="w-5 h-5" />
-                  Get My Personalized Plan
-                </button>
-              </form>
-
-              <p className="text-center text-sm text-gray-500 mt-6">
-                By signing up, you agree to our Terms of Service and Privacy Policy
-              </p>
-            </div>
-          </div>
+          {/* Secondary CTA */}
+          <p className="text-white/80 text-base">
+            Join the waitlist & get your <strong>free supplement clarity guide</strong>
+          </p>
         </div>
       </div>
 
-      {/* Features Section */}
-      <div className="py-24 bg-white text-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#174C4F] mb-4">
-              Why Choose YoungerU?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Science-backed recommendations tailored to your unique needs
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Pain Point Section */}
+      <div className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-8">
             {[
               {
-                icon: <User className="w-8 h-8 text-[#7ED957]" />,
-                title: "Personalized for You",
-                description: "Every recommendation is tailored to your lifestyle, goals, and health profile"
+                icon: <AlertCircle className="w-10 h-10 text-red-500" />,
+                text: "Too many pills, too little clarity."
               },
               {
-                icon: <Zap className="w-8 h-8 text-[#7ED957]" />,
-                title: "Science-Backed",
-                description: "All recommendations are based on peer-reviewed research and clinical evidence"
+                icon: <AlertTriangle className="w-10 h-10 text-orange-500" />,
+                text: "Studies feel like hype and BS."
               },
               {
-                icon: <Shield className="w-8 h-8 text-[#7ED957]" />,
-                title: "Safety First",
-                description: "Built-in safety checks for interactions and contraindications"
+                icon: <TrendingDown className="w-10 h-10 text-amber-500" />,
+                text: "I'm 40, energy's dipping, recovery is slower."
               }
-            ].map((feature, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-16 h-16 bg-[#F5F7F8] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[#7ED957]/10 transition-colors duration-300">
-                  {feature.icon}
+            ].map((pain, index) => (
+              <div key={index} className="flex items-start gap-6 p-6 bg-gray-50 rounded-2xl border-l-4 border-red-400">
+                <div className="flex-shrink-0">
+                  <X className="w-8 h-8 text-red-500" />
                 </div>
-                <h3 className="text-xl font-semibold text-[#174C4F] mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600">
-                  {feature.description}
+                <p className="text-xl text-gray-800 font-medium flex-1">
+                  {pain.text}
                 </p>
               </div>
             ))}
           </div>
-        </div>
-      </div>
 
-      {/* CTA Section */}
-      <div className="py-24 bg-[#F5F7F8]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#174C4F] mb-6">
-            Ready to Feel Your Best?
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Join thousands who've already started their wellness transformation
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* Solution CTA */}
+          <div className="mt-12 text-center">
+            <p className="text-2xl text-[#174C4F] font-bold mb-6">
+              → Take the quiz and see what actually works for you.
+            </p>
             <a
-              href="#signup"
+              href="#email-form"
+              className="inline-flex items-center justify-center gap-3 bg-[#7ED957] text-white px-10 py-4 rounded-2xl font-bold hover:bg-[#6BC847] transition-all duration-200 shadow-lg text-lg"
               onClick={(e) => {
                 e.preventDefault()
-                document.querySelector('form')?.scrollIntoView({ behavior: 'smooth' })
+                document.getElementById('email-form')?.scrollIntoView({ behavior: 'smooth' })
               }}
-              className="bg-[#7ED957] text-white px-8 py-4 rounded-2xl font-semibold hover:bg-[#6BC847] transition-all duration-200 hover-lift shadow-lg text-lg flex items-center justify-center gap-3"
             >
-              Start Your Plan
+              Start Your Quiz
               <ArrowRight className="w-5 h-5" />
             </a>
           </div>
+        </div>
+      </div>
+
+      {/* Email Capture Section */}
+      <div id="email-form" className="py-24 bg-gradient-to-br from-[#174C4F] to-[#174C4F]/80">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#174C4F] mb-4">
+                Get Your Free Supplement Clarity Guide
+              </h2>
+              <p className="text-xl text-gray-600 leading-relaxed">
+                What actually works, what doesn't, and how to save money.
+              </p>
+            </div>
+
+            <form onSubmit={handleEmailSubmit} className="max-w-xl mx-auto">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1 px-6 py-4 border-2 border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#7ED957] focus:border-[#7ED957] text-lg bg-white text-black"
+                  placeholder="Enter your email"
+                />
+                <button
+                  type="submit"
+                  className="bg-[#7ED957] text-white px-8 py-4 rounded-2xl font-bold hover:bg-[#6BC847] transition-all duration-200 shadow-lg text-lg whitespace-nowrap"
+                >
+                  Get My Guide
+                </button>
+              </div>
+              <p className="text-center text-sm text-gray-500 mt-4">
+                No spam. Unsubscribe anytime. Your data is safe with us.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {/* Final CTA Section */}
+      <div className="py-24 bg-[#F5F7F8]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#174C4F] mb-6">
+            Ready to Cut Through the Confusion?
+          </h2>
+          <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+            Join thousands who've stopped wasting money on supplements that don't work
+          </p>
+          <a
+            href="#email-form"
+            onClick={(e) => {
+              e.preventDefault()
+              document.getElementById('email-form')?.scrollIntoView({ behavior: 'smooth' })
+            }}
+            className="inline-flex items-center justify-center gap-3 bg-[#7ED957] text-white px-10 py-5 rounded-2xl font-bold hover:bg-[#6BC847] transition-all duration-200 shadow-xl text-xl hover:scale-105 transform"
+          >
+            Get Your Free Guide Now
+            <ArrowRight className="w-6 h-6" />
+          </a>
         </div>
       </div>
 
